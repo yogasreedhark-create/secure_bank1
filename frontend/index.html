@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SecureBank — Employee Login / Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="hero-curve" aria-hidden="true">
+    <span>S</span><span>E</span><span>C</span><span>U</span><span>R</span><span>E</span>
+    <span>&nbsp;</span>
+    <span>B</span><span>A</span><span>N</span><span>K</span>
+  </div>
+
+  <main class="center-card" role="main">
+    <div class="switcher">
+      <button id="show-login-btn" class="btn small active" onclick="showAuth('login')">Login</button>
+      <button id="show-register-btn" class="btn small" onclick="showAuth('register')">Register</button>
+    </div>
+
+    <!-- LOGIN -->
+    <section id="login-card" class="card auth-card" role="tabpanel">
+      <h2>Employee Login</h2>
+
+      <label for="empLoginId">Employee ID</label>
+      <input id="empLoginId" class="input" placeholder="EMP123456" autocomplete="username">
+
+      <label for="empLoginPassword">Password</label>
+      <input id="empLoginPassword" class="input" type="password" placeholder="Enter your password" autocomplete="current-password">
+
+      <div class="actions">
+        <button id="loginBtn" class="btn" type="button" onclick="loginWithEmpIdAndPassword()">Login</button>
+      </div>
+      <p id="loginMessage" class="muted" aria-live="polite">If you don't have an account, register above.</p>
+    </section>
+
+    <!-- REGISTER -->
+    <section id="register-card" class="card auth-card" role="tabpanel" style="display:none;">
+      <h2>Employee Registration</h2>
+
+      <label for="regEmpId">Employee ID (auto)</label>
+      <input id="regEmpId" class="input" disabled />
+
+      <label for="regFirstname">First name</label>
+      <input id="regFirstname" class="input" maxlength="50" />
+
+      <label for="regLastname">Last name</label>
+      <input id="regLastname" class="input" maxlength="50" />
+
+      <label for="regEmail">Email</label>
+      <input id="regEmail" class="input" type="email"/>
+
+      <label for="regPassword">Password</label>
+      <input id="regPassword" class="input" type="password" maxlength="30"/>
+
+      <label for="regConfirm">Confirm Password</label>
+      <input id="regConfirm" class="input" type="password" maxlength="30"/>
+
+      <label for="regAddress">Address</label>
+      <input id="regAddress" class="input" maxlength="100"/>
+
+      <label for="regContact">Contact Number</label>
+      <input id="regContact" class="input" maxlength="10" inputmode="numeric" />
+
+      <div class="actions">
+        <button class="btn" type="button" onclick="registerEmployee()">Register</button>
+      </div>
+      <p id="registerMessage" class="muted" aria-live="polite">Registration stored locally (demo).</p>
+    </section>
+  </main>
+
+<script src="script.js"></script>
+<script>
+  // init register id
+  document.addEventListener('DOMContentLoaded', () => {
+    const idEl = document.getElementById('regEmpId');
+    if (idEl) idEl.value = generateEmployeeId();
+  });
+
+  function showAuth(tab){
+    document.getElementById('login-card').style.display = (tab==='login') ? 'block' : 'none';
+    document.getElementById('register-card').style.display = (tab==='register') ? 'block' : 'none';
+    document.getElementById('show-login-btn').classList.toggle('active', tab==='login');
+    document.getElementById('show-register-btn').classList.toggle('active', tab==='register');
+  }
+</script>
+</body>
+</html>

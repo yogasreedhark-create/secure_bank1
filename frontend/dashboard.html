@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - SecureBank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <aside class="sidebar">
+    <h2 class="brand">SecureBank</h2>
+    <nav class="sidebar-nav">
+      <button onclick="navTo('dashboard.html')" class="active">🏠 Dashboard</button>
+      <button onclick="navTo('deposit.html')">💰 Deposit</button>
+      <button onclick="navTo('withdraw.html')">💸 Withdraw</button>
+      <button onclick="navTo('transfer.html')">🔁 Transfer</button>
+      <button onclick="navTo('transactions.html')">📄 Transactions</button>
+      <button onclick="navTo('customers.html')">👥 Customers</button>
+      <button onclick="navTo('loan_request.html')">📘 Loan</button>
+      <button onclick="navTo('profile.html')">🧾 KYC</button>
+      <button onclick="navTo('payment.html')">💱 Payments</button>
+      <button onclick="navTo('faq.html')">❓ FAQ</button>
+      <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </nav>
+    <footer class="sidebar-footer">
+      <p><strong>Secure Bank Ltd</strong></p>
+      <p>📍 Siruseri SIPCOT IT Park, Chennai</p>
+      <p>✉ support@securebank.com</p>
+    </footer>
+  </aside>
+
+  <main class="content">
+    <h1 class="welcome-title">Welcome Back!</h1>
+    <p class="sub-text">Your account summary appears below.</p>
+
+    <div class="stats-container grid-3">
+      <div class="card stat-card">
+        <h3>Available Balance</h3>
+        <p id="balance">₹0</p>
+      </div>
+      <div class="card stat-card">
+        <h3>Total Deposits</h3>
+        <p id="totalDeposits">₹0</p>
+      </div>
+      <div class="card stat-card">
+        <h3>Total Withdrawals</h3>
+        <p id="totalWithdrawals">₹0</p>
+      </div>
+    </div>
+
+    <div class="action-grid">
+      <a class="action-card" onclick="navTo('deposit.html')">Deposit</a>
+      <a class="action-card" onclick="navTo('withdraw.html')">Withdraw</a>
+      <a class="action-card" onclick="navTo('transfer.html')">Transfer</a>
+      <a class="action-card" onclick="navTo('customers.html')">Customers</a>
+      <a class="action-card" onclick="navTo('transactions.html')">Transactions</a>
+      <a class="action-card" onclick="navTo('loan_request.html')">Loan</a>
+    </div>
+  </main>
+
+<script src="script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Redirect to login if not logged in
+    const empId = getCurrentUser();
+    if (!empId) {
+      window.location.href = "index.html";
+      return;
+    }
+
+    const employees = loadAllEmployees();
+    const emp = employees[empId];
+    if (!emp) { logout(); return; }
+
+    document.querySelector(".welcome-title").innerText = `Welcome back, ${emp.email || emp.empId}!`;
+
+    const balanceEl = document.getElementById('balance');
+    const depositsEl = document.getElementById('totalDeposits');
+    const withdrawEls = document.getElementById('totalWithdrawals');
+
+    balanceEl.innerText = "₹" + (Number(emp.balance || 0)).toLocaleString();
+
+    const txns = emp.transactions || [];
+    const deposits = txns.filter(t => t.type === "Deposit").reduce((s, t) => s + Number(t.amount || 0), 0);
+    const withdrawals = txns.filter(t => t.type === "Withdraw").reduce((s, t) => s + Number(t.amount || 0), 0);
+
+    depositsEl.innerText = "₹" + deposits.toLocaleString();
+    withdrawEls.innerText = "₹" + withdrawals.toLocaleString();
+  });
+</script>
+</body>
+</html>

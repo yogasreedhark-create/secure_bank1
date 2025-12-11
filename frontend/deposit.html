@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Deposit - SecureBank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <aside class="sidebar">
+    <h2 class="brand">SecureBank</h2>
+    <nav class="sidebar-nav">
+      <button onclick="navTo('dashboard.html')">🏠 Dashboard</button>
+      <button onclick="navTo('deposit.html')" class="active">💰 Deposit</button>
+      <button onclick="navTo('withdraw.html')">💸 Withdraw</button>
+      <button onclick="navTo('transfer.html')">🔁 Transfer</button>
+      <button onclick="navTo('transactions.html')">📄 Transactions</button>
+      <button onclick="navTo('customers.html')">👥 Customers</button>
+      <button onclick="navTo('loan_request.html')">📘 Loan</button>
+      <button onclick="navTo('profile.html')">🧾 KYC</button>
+      <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="card wide">
+      <h1>Add Money</h1>
+      <p>Deposit funds into your account securely.</p>
+      <input id="add-amt" class="input" type="number" placeholder="Enter amount" min="1"/>
+      <button class="btn" onclick="addMoney()">Add Money</button>
+      <a href="dashboard.html" class="back">⬅ Back to Dashboard</a>
+    </div>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

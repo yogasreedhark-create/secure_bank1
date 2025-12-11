@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Payments - SecureBank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <aside class="sidebar">
+    <h2 class="brand">SecureBank</h2>
+    <nav class="sidebar-nav">
+      <button onclick="navTo('dashboard.html')">🏠 Dashboard</button>
+      <button onclick="navTo('deposit.html')">💰 Deposit</button>
+      <button onclick="navTo('withdraw.html')">💸 Withdraw</button>
+      <button onclick="navTo('transfer.html')">🔁 Transfer</button>
+      <button onclick="navTo('transactions.html')">📄 Transactions</button>
+      <button onclick="navTo('loan_request.html')">📘 Loan</button>
+      <button onclick="navTo('payment.html')" class="active">💱 Payments</button>
+      <button onclick="navTo('profile.html')">🧾 KYC Verification</button>
+      <button onclick="navTo('faq.html')">❓ FAQ</button>
+      <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1 class="welcome-title">UPI Payment</h1>
+    <p class="sub-text">Scan QR or choose your UPI app to make a payment.</p>
+
+    <div class="payment-container">
+      <div class="card payment-card">
+        <h2>Scan to Pay</h2>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SecureBankUPI" alt="QR Code" class="qr-img">
+        <input type="number" id="payAmount" class="input" placeholder="Enter Amount" min="1">
+      </div>
+
+      <div class="card payment-card">
+        <h2>Select UPI App</h2>
+        <select id="upiApp" class="input">
+          <option value="">-- Choose App --</option>
+          <option value="Google Pay">Google Pay</option>
+          <option value="PhonePe">PhonePe</option>
+          <option value="Paytm">Paytm</option>
+        </select>
+        <input type="password" id="upiPin" class="input" maxlength="6" placeholder="Enter 6 Digit UPI PIN">
+        <button class="btn" onclick="makeUPIPayment()">Pay Now</button>
+      </div>
+    </div>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

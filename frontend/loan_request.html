@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Loan Request - SecureBank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <aside class="sidebar">
+    <h2 class="brand">SecureBank</h2>
+    <nav class="sidebar-nav">
+      <button onclick="navTo('dashboard.html')">🏠 Dashboard</button>
+      <button onclick="navTo('customers.html')">👥 Customers</button>
+      <button onclick="navTo('loan_request.html')" class="active">📘 Loan</button>
+      <button onclick="navTo('transactions.html')">📄 Transactions</button>
+      <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1 class="welcome-title">Loan Eligibility & Application</h1>
+    <div class="card loan-box">
+      <h2>Your CIBIL Score</h2>
+      <p id="cibilScore" class="cibil-value">Loading...</p>
+      <h3>Eligible Loan Amount: <span id="eligibleAmount">₹0</span></h3>
+      <button class="btn" onclick="loadCIBIL()">Refresh CIBIL</button>
+    </div>
+
+    <div class="card loan-box">
+      <h2>EMI Calculator</h2>
+      <input id="loanAmount" class="input" type="number" placeholder="Loan Amount" />
+      <input id="loanRate" class="input" type="number" value="12" placeholder="Interest Rate %" />
+      <input id="loanMonths" class="input" type="number" placeholder="Tenure (Months)" />
+      <button class="btn" onclick="calculateEMI()">Calculate EMI</button>
+      <p class="emi-result">Monthly EMI: <strong id="emiValue">₹0</strong></p>
+    </div>
+
+    <div class="card loan-box">
+      <h2>Submit Loan Request</h2>
+      <label>Customer SSN</label>
+      <input id="loanSSN" class="input" />
+      <label>Loan Amount</label>
+      <input id="loanApplyAmount" class="input" type="number" />
+      <button class="btn" onclick="submitLoanForCustomer()">Submit Loan Request</button>
+    </div>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

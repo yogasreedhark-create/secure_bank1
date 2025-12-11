@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Edit Customer - SecureBank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <aside class="sidebar">
+    <h2 class="brand">SecureBank</h2>
+    <nav class="sidebar-nav">
+      <button onclick="navTo('dashboard.html')">🏠 Dashboard</button>
+      <button onclick="navTo('customers.html')">👥 Customers</button>
+      <button onclick="navTo('edit_customer.html')" class="active">✏️ Edit</button>
+      <button onclick="navTo('delete_customer.html')">🗑 Delete</button>
+      <button onclick="navTo('transactions.html')">📄 Transactions</button>
+      <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="card wide">
+      <h1>Edit Customer</h1>
+      <label>Enter Customer SSN</label>
+      <input id="editSearchSSN" class="input" />
+      <button class="btn" onclick="searchCustomerForEdit()">Search</button>
+
+      <div id="editCustomerSection" style="display:none; margin-top:16px;">
+        <label>Customer Name</label>
+        <input id="editCName" class="input" />
+        <label>Account Number (read-only)</label>
+        <input id="editAccNum" class="input" disabled />
+        <label>Aadhaar</label>
+        <input id="editAadhaar" class="input" disabled />
+        <label>Address</label>
+        <textarea id="editAddress" class="input"></textarea>
+        <label>Balance</label>
+        <input id="editBalance" class="input" type="number" />
+        <button class="btn" onclick="updateCustomer()">Update</button>
+      </div>
+    </div>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

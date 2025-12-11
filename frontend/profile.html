@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile / KYC - SecureBank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <aside class="sidebar">
+    <h2 class="brand">SecureBank</h2>
+    <nav class="sidebar-nav">
+      <button onclick="navTo('dashboard.html')">🏠 Dashboard</button>
+      <button onclick="navTo('customers.html')">👥 Customers</button>
+      <button onclick="navTo('profile.html')" class="active">🧾 KYC</button>
+      <button onclick="navTo('transactions.html')">📄 Transactions</button>
+      <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="card wide">
+      <h1>KYC Verification</h1>
+      <p><strong>Employee:</strong> <span id="username"></span></p>
+
+      <h3>Upload KYC Documents</h3>
+      <label>Aadhar Front</label><input id="aadhar-front" type="file" />
+      <label>Aadhar Back</label><input id="aadhar-back" type="file" />
+      <label>Selfie</label><input id="selfie-photo" type="file" />
+      <button class="btn" onclick="submitKYC()">Submit KYC</button>
+
+      <h3 style="margin-top:18px;">KYC Status: <span id="kyc-status" class="status-badge">Not Submitted</span></h3>
+      <ul id="kyc-progress" style="margin-top:10px;">
+        <li id="step1">📄 Information Submitted</li>
+        <li id="step2">🔍 Verification Under Review</li>
+        <li id="step3">✅ KYC Verified</li>
+      </ul>
+    </div>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

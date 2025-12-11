@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Customers - SecureBank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <aside class="sidebar">
+    <h2 class="brand">SecureBank</h2>
+    <nav class="sidebar-nav">
+      <button onclick="navTo('dashboard.html')">🏠 Dashboard</button>
+      <button onclick="navTo('customers.html')" class="active">👥 Customers</button>
+      <button onclick="navTo('transactions.html')">📄 Transactions</button>
+      <button onclick="navTo('deposit.html')">💰 Deposit</button>
+      <button onclick="navTo('withdraw.html')">💸 Withdraw</button>
+      <button onclick="navTo('transfer.html')">🔁 Transfer</button>
+      <button onclick="navTo('loan_request.html')">📘 Loan</button>
+      <button onclick="navTo('profile.html')">🧾 KYC</button>
+      <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="card wide">
+      <h1>Register Customer</h1>
+
+      <label>Customer SSN</label>
+      <input id="custSSN" class="input" maxlength="12" placeholder="Customer SSN"/>
+
+      <label>Customer Name</label>
+      <input id="custName" class="input" maxlength="100" placeholder="Full Name"/>
+
+      <label>Account Number</label>
+      <input id="custAcc" class="input" maxlength="18" placeholder="Account Number"/>
+
+      <label>Account Type</label>
+      <input id="custAccType" class="input" placeholder="Savings / Current"/>
+
+      <label>Initial Balance</label>
+      <input id="custBalance" class="input" type="number" min="0" value="0"/>
+
+      <label>Aadhaar</label>
+      <input id="custAadhaar" class="input" maxlength="12"/>
+
+      <label>PAN</label>
+      <input id="custPan" class="input" maxlength="10"/>
+
+      <label>Address</label>
+      <textarea id="custAddress" class="input" maxlength="200"></textarea>
+
+      <button class="btn" onclick="registerCustomer()">Register Customer</button>
+
+      <hr/>
+      <h3>Existing Customers</h3>
+      <ul id="customer-list"></ul>
+
+    </div>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

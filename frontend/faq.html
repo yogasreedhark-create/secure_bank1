@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQ - SecureBank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <aside class="sidebar">
+    <h2 class="brand">SecureBank</h2>
+    <nav class="sidebar-nav">
+      <button onclick="navTo('dashboard.html')">🏠 Dashboard</button>
+      <button onclick="navTo('customers.html')">👥 Customers</button>
+      <button onclick="navTo('loan_request.html')">📘 Loan</button>
+      <button onclick="navTo('faq.html')" class="active">❓ FAQ</button>
+      <button onclick="navTo('transactions.html')">📄 Transactions</button>
+      <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="card wide">
+      <h1>FAQ & Bot</h1>
+      <p>Type a question and get an instant canned answer (demo).</p>
+      <div id="chat-box" class="chat-box"></div>
+      <input id="chat-input" class="input" placeholder="Ask something like 'how to withdraw'"/>
+      <button class="btn" onclick="askBot()">Ask</button>
+    </div>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

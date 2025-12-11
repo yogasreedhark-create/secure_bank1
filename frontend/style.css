@@ -1,0 +1,90 @@
+/* -----------------------------
+   GLOBAL RESET & THEME
+------------------------------*/
+*{ margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body.gradient, body.dashboard-body {
+  min-height:100vh;
+  background: linear-gradient(135deg,#1e3c72,#2575fc);
+  color:#fff;
+  display:flex;
+}
+
+/* -----------------------------
+   CENTER AUTH CARD
+------------------------------*/
+.center-card{ width:420px; margin:80px auto; }
+.auth-card{ padding:22px; border-radius:12px; background: rgba(255,255,255,0.06); box-shadow:0 8px 30px rgba(0,0,0,0.35); }
+.center-card .switcher{ display:flex; gap:8px; justify-content:center; margin-bottom:14px; }
+
+.btn{appearance:none; border:none; color:#081424; background:linear-gradient(180deg, #a9f7ff, #62e1ff); padding:.85rem 1.1rem; border-radius:12px; cursor:pointer; font-weight:600; box-shadow:0 10px 20px rgba(108,240,255,.25)}
+.btn.small{background:linear-gradient(180deg, #cdd7ff, #aeb7ff)}
+.btn.small.active{background:linear-gradient(180deg, #a9f7ff, #62e1ff)}
+.actions{margin-top:.9rem; display:flex; gap:.6rem; justify-content:flex-end}
+
+label{display:block; font-size:.85rem; color:#b2b7c8; margin:.4rem 0 .25rem}
+.input, textarea{ width:100%; padding:10px 12px; border-radius:8px; border:none; margin-bottom:12px; background: rgba(255,255,255,0.03); color:#fff; }
+.input:focus{ outline:2px solid rgba(37,117,252,0.5); }
+textarea{ min-height:80px; resize:vertical; }
+
+/* -----------------------------
+   SIDEBAR
+------------------------------*/
+.sidebar{ width:250px; background:rgba(0,0,0,0.88); padding:24px 18px; display:flex; flex-direction:column; min-height:100vh; position:fixed; }
+.brand{ font-size:1.8rem; font-weight:700; text-align:center; margin-bottom:20px; color:#fff; }
+.sidebar-nav{ display:flex; flex-direction:column; gap:10px; }
+.sidebar-nav button{ background:rgba(255,255,255,0.07); border:none; color:#fff; padding:12px 14px; border-radius:10px; text-align:left; cursor:pointer; transition:all .2s; font-size:0.98rem; }
+.sidebar-nav button.active, .sidebar-nav button:hover{ background:#2575fc; transform:translateX(6px); }
+.sidebar-footer{ margin-top:auto; color:#ccc; font-size:0.85rem; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); }
+
+/* -----------------------------
+   MAIN CONTENT
+------------------------------*/
+.content{ margin-left:260px; padding:36px; width:calc(100% - 260px); }
+.welcome-title{ font-size:2.2rem; margin-bottom:6px; font-weight:700; }
+.sub-text{ opacity:0.9; margin-bottom:18px; }
+
+/* -----------------------------
+   CARD
+------------------------------*/
+.card{ background: rgba(255,255,255,0.06); border-radius:12px; padding:20px; box-shadow:0 8px 30px rgba(0,0,0,0.35); margin-bottom:18px; }
+.card.wide{ max-width:900px; margin:0 auto; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:16px; }
+
+/* -----------------------------
+   BUTTONS HELPERS
+------------------------------*/
+.btn:hover{ background:#6a11cb; color:#fff }
+.small{ padding:8px 10px; font-size:0.95rem; }
+.muted{ color:rgba(255,255,255,0.7); margin-top:8px; font-size:0.9rem; }
+
+/* -----------------------------
+   TXN LIST & CHAT
+------------------------------*/
+.txn-list{ list-style:none; padding:0; max-height:420px; overflow:auto; }
+.txn-list li{ background:rgba(255,255,255,0.04); margin-bottom:8px; padding:10px; border-radius:8px; }
+.chat-box{ padding:10px; background:rgba(255,255,255,0.03); border-radius:8px; min-height:120px; margin-bottom:8px; }
+
+/* -----------------------------
+   DANGER
+------------------------------*/
+.danger-btn{ background:#e03b3b !important; }
+
+/* -----------------------------
+   KYC STATUS
+------------------------------*/
+.status-badge{ padding:6px 10px; border-radius:8px; color:#fff; font-weight:700; }
+
+/* -----------------------------
+   RESPONSIVE
+------------------------------*/
+@media screen and (max-width:900px){
+  .grid-3{ grid-template-columns:repeat(1,1fr); }
+  .sidebar{ width:70px; padding:12px; }
+  .brand{ font-size:1rem; }
+  .content{ margin-left:80px; padding:18px; width:calc(100% - 80px); }
+  .sidebar-nav button{ font-size:0; padding:10px; }
+}
+
+/* hero title */
+.hero-curve { position: fixed; inset:auto 0 0 0; display:flex; justify-content:center; gap:.25rem; pointer-events:none; z-index:0; opacity:.06; padding-bottom:4rem; user-select:none; }
+.hero-curve span{ font-weight:900; font-size:12vw; color:#b4c9ff; text-shadow:0 0 10px rgba(108,240,255,.7), 0 0 30px rgba(140,127,255,.4); }
